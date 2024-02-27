@@ -1,0 +1,195 @@
+/* --Importing fonts-- */
+@font-face {
+    font-family: plain-light-webfont;
+    src: url(./media/fonts/plain-light-webfont.woff);
+}
+
+@font-face {
+    font-family: inherit-webfont;
+    src: url(./media/fonts/inherit-webfont.woff);
+}
+
+@font-face {
+    font-family: silkserif-lightitalic-webfont;
+    src: url(./media/fonts/silkserif-lightitalic-webfont.woff);
+}
+
+@font-face {
+    font-family: silkserif-regularitalic-webfont;
+    src: url(./media/fonts/silkserif-regularitalic-webfont.woff);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "plain-light-webfont";
+    color: white;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    position: relative;
+}
+
+
+
+
+/* Loader css */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    background-color: #0B0B0B;
+    padding-left: 5vw;
+    padding-top: 9vw;
+}
+
+#loader h1 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    /* background-color: aqua;
+    margin-bottom: 1vw; */
+    height: 7.4vw;
+    overflow: hidden;
+}
+
+#loader h1>span {
+    position: absolute;
+    font-size: 7vw;
+    line-height: 7.4vw;
+    text-transform: uppercase;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    height: 100%;
+}
+
+#loader h1:first-child>span span {
+    transform: translate3d(13vw, 0, 0);
+}
+
+#loader h1:first-child>span pre {
+    font-family: silkserif-lightitalic-webfont;
+    font-weight: 100;
+    font-size: 3vw;
+    line-height: 1;
+    position: fixed;
+    display: flex;
+    top: 10vw;
+    left: 5.1vw;
+    z-index: 9999;
+}
+
+#loader h1:first-child>span pre p {
+    font-family: inherit;
+    display: flex;
+    justify-content: end;
+    width: 5vw;
+}
+
+#loader h1:last-child>span span:last-child {
+    background: #0B0B0B;
+}
+
+#loader>p {
+    margin-left: 15vw;
+    margin: 3.5vw 20vw;
+    font-size: 15px;
+}
+
+
+
+
+
+
+
+
+/* page1 css */
+#page1 {
+    height: 100vh;
+    width: 100%;
+    background-color: #151515;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* -----Animations----- */
+@-webkit-keyframes now-anime {
+    0% {
+        font-family: inherit;
+        -webkit-text-stroke: 1px #fff;
+        color: #fff;
+        opacity: 1;
+    }
+
+    49% {
+        font-family: inherit;
+        -webkit-text-stroke: 1px #fff;
+        color: #fff;
+        opacity: 0;
+    }
+
+    50% {
+        font-family: silkserif-regularitalic-webfont;
+        color: transparent;
+        -webkit-text-stroke: 1px #fff;
+        opacity: 1;
+    }
+
+    100% {
+        font-family: silkserif-regularitalic-webfont;
+        color: transparent;
+        -webkit-text-stroke: 1px #fff;
+        opacity: 0;
+    }
+}
+
+@keyframes now-anime {
+    0% {
+        font-family: inherit;
+        -webkit-text-stroke: 1px #fff;
+        color: #fff;
+        opacity: 1;
+    }
+
+    49% {
+        font-family: inherit;
+        -webkit-text-stroke: 1px #fff;
+        color: #fff;
+        opacity: 0;
+    }
+
+    50% {
+        font-family: silkserif-regularitalic-webfont;
+        color: transparent;
+        -webkit-text-stroke: 1px #fff;
+        opacity: 1;
+    }
+
+    100% {
+        font-family: silkserif-regularitalic-webfont;
+        color: transparent;
+        -webkit-text-stroke: 1px #fff;
+        opacity: 0;
+    }
+}
