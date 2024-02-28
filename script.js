@@ -1,3 +1,6 @@
+const $ = (element) => (document.querySelector(element));
+const $$ = element => (document.querySelectorAll(element));
+
 let tl = gsap.timeline();
 
 
@@ -25,7 +28,7 @@ function loadingAnimatin() {
                         clearInterval(id);
 
                         tl
-                            .to("#loader h1 span, #loader>p", {
+                            .to("#loader h1 span, .loader-container>p", {
                                 opacity: 0,
                                 stagger: .05,
                                 delay: .5
@@ -36,13 +39,13 @@ function loadingAnimatin() {
                                 duration: 1,
                                 ease: Expo.easeInOut,
                                 onComplete: () => {
-                                    document.querySelector("#loader").remove();
+                                    $("#loader").remove();
                                 }
                             });
                     }
                 }, 30);
-                document.querySelector("#loader h1:last-child>span span:last-child").style["-webkit-animation"] = "now-anime 1.5s infinite linear";
-                document.querySelector("#loader h1:last-child>span span:last-child").style.animation = "now-anime 1.5s infinite linear";
+                $("#loader h1:last-child>span span:last-child").style["-webkit-animation"] = "now-anime 1.5s infinite linear";
+                $("#loader h1:last-child>span span:last-child").style.animation = "now-anime 1.5s infinite linear";
             }
         })
         .from("#loader h1:first-child>span pre", {
@@ -50,7 +53,7 @@ function loadingAnimatin() {
             duration: .6,
             delay: -.5
         })
-        .from("#loader>p", {
+        .from(".loader-container>p", {
             opacity: 0,
             duration: 1,
             delay: -.5

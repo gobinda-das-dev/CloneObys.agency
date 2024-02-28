@@ -1,30 +1,15 @@
 /* --Importing fonts-- */
-@font-face {
-    font-family: plain-light-webfont;
-    src: url(./media/fonts/plain-light-webfont.woff);
-}
-
-@font-face {
-    font-family: inherit-webfont;
-    src: url(./media/fonts/inherit-webfont.woff);
-}
-
-@font-face {
-    font-family: silkserif-lightitalic-webfont;
-    src: url(./media/fonts/silkserif-lightitalic-webfont.woff);
-}
-
-@font-face {
-    font-family: silkserif-regularitalic-webfont;
-    src: url(./media/fonts/silkserif-regularitalic-webfont.woff);
-}
+@font-face { font-family: plain-light; src: url(./media/fonts/plain-light-webfont.woff); }
+@font-face { font-family: inherit-f; src: url(./media/fonts/inherit-webfont.woff); }
+@font-face { font-family: silkserif-lightitalic; src: url(./media/fonts/silkserif-lightitalic-webfont.woff); }
+@font-face { font-family: silkserif-regularitalic; src: url(./media/fonts/silkserif-regularitalic-webfont.woff); }
 
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "plain-light-webfont";
+    font-family: "plain-light";
     color: white;
 }
 
@@ -52,63 +37,69 @@ main {
     background-color: #0B0B0B;
     padding-left: 5vw;
     padding-top: 9vw;
-}
 
-#loader h1 {
-    position: relative;
-    display: flex;
-    align-items: center;
-    /* background-color: aqua;
-    margin-bottom: 1vw; */
-    height: 7.4vw;
-    overflow: hidden;
-}
+    .loader-container {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translate(0, -50%);
+        
+        >p {
+            margin-left: 15vw;
+            margin: 3.5vw 20vw;
+            font-size: 15px;
+        }
+    }
 
-#loader h1>span {
-    position: absolute;
-    font-size: 7vw;
-    line-height: 7.4vw;
-    text-transform: uppercase;
-    font-weight: 900;
-    display: flex;
-    align-items: center;
-    gap: 2vw;
-    height: 100%;
-}
+    h1 {
+        position: relative;
+        display: flex;
+        align-items: center;
+        height: 7.4vw;
+        overflow: hidden;
 
-#loader h1:first-child>span span {
-    transform: translate3d(13vw, 0, 0);
-}
+        >span {
+            position: absolute;
+            font-size: 7vw;
+            line-height: 7.4vw;
+            text-transform: uppercase;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 2vw;
+            height: 100%;
+        }
 
-#loader h1:first-child>span pre {
-    font-family: silkserif-lightitalic-webfont;
-    font-weight: 100;
-    font-size: 3vw;
-    line-height: 1;
-    position: fixed;
-    display: flex;
-    top: 10vw;
-    left: 5.1vw;
-    z-index: 9999;
-}
+        &:first-child>span {
 
-#loader h1:first-child>span pre p {
-    font-family: inherit;
-    display: flex;
-    justify-content: end;
-    width: 5vw;
-}
+            span {
+                transform: translate3d(13vw, 0, 0);
 
-#loader h1:last-child>span span:last-child {
-    background: #0B0B0B;
-}
+                &:last-child {
+                    background-color: #0B0B0B;
+                }
+            }
 
-#loader>p {
-    margin-left: 15vw;
-    margin: 3.5vw 20vw;
-    font-size: 15px;
-}
+            pre {
+                font-family: silkserif-lightitalic;
+                font-weight: 100;
+                font-size: 3vw;
+                line-height: 1;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: flex;
 
+                p {
+                    font-family: inherit;
+                    display: flex;
+                    justify-content: end;
+                    width: 5vw;
+                }
+            }
+        }
+    }
+}
 
 
 
@@ -150,17 +141,18 @@ main {
     }
 
     50% {
-        font-family: silkserif-regularitalic-webfont;
+        font-family: silkserif-regularitalic;
         color: transparent;
         -webkit-text-stroke: 1px #fff;
         opacity: 1;
     }
-
+    
     100% {
-        font-family: silkserif-regularitalic-webfont;
+        font-family: silkserif-regularitalic;
         color: transparent;
         -webkit-text-stroke: 1px #fff;
         opacity: 0;
+        font-weight: 100;
     }
 }
 
@@ -178,18 +170,44 @@ main {
         color: #fff;
         opacity: 0;
     }
-
+    
     50% {
-        font-family: silkserif-regularitalic-webfont;
+        font-family: silkserif-regularitalic;
         color: transparent;
         -webkit-text-stroke: 1px #fff;
         opacity: 1;
     }
 
     100% {
-        font-family: silkserif-regularitalic-webfont;
+        font-family: silkserif-regularitalic;
         color: transparent;
         -webkit-text-stroke: 1px #fff;
         opacity: 0;
+        font-weight: 100;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* -----Responsiveness----- */
+@media (max-width: 767px) {
+    #loader {
+
+        .loader-container {
+            top: 45%;
+    
+            >p {
+                margin-left: 0vw;
+            }
+        }
     }
 }
