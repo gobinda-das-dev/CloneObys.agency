@@ -11,6 +11,7 @@
     box-sizing: border-box;
     font-family: "plain-light";
     color: white;
+    cursor: none;
 }
 
 html,
@@ -18,13 +19,28 @@ body {
     height: 100%;
     width: 100%;
 }
+body::-webkit-scrollbar { display: none; }
 
 main {
-    cursor: none;
     position: relative;
     background-color: #151515;
 }
 
+/* Universal Css */
+
+.magnet {
+    position: relative;
+    display: inline-flex;
+    transition: box-shadow ease-in-out .2s;
+    padding: 5px 20px;
+  }
+
+
+
+
+
+
+/* Cursor css */
 .cursor {
     pointer-events: none;
   
@@ -124,6 +140,49 @@ main {
                     display: flex;
                     justify-content: end;
                     width: 5vw;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+/* Header css */
+header {
+    padding: 50px 0;
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 65px;
+        font-weight: 300;
+        text-transform: capitalize;
+        --font-size: 15.2851px;
+        --letter-spacing: -.2px;
+
+        .nav-right {
+            width: 75%;
+            display: flex;
+            justify-content: space-between;
+            
+            p {
+                line-height: 1;
+                font-size: var(--font-size);
+                letter-spacing: var(--letter-spacing);
+            }
+
+            ul {
+                list-style-type: none;
+                display: flex;
+                gap: 40px;
+
+                a {
+                    font-size: var(--font-size);
+                    letter-spacing: var(--letter-spacing);
+                    text-decoration: none;
                 }
             }
         }

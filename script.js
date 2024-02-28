@@ -8,6 +8,8 @@ let tl = gsap.timeline();
 // Calling functins
 loadingAnimatin();
 mouseFollower();
+makeMagnet('.magnet');
+locoMotive();
 test();
 
 
@@ -96,6 +98,49 @@ function mouseFollower() {
 }
 
 
+function makeMagnet(element) {
+    const magnets = $$(element);
+
+    magnets.forEach((magnet) => {
+        let boundingRect = magnet.getBoundingClientRect();
+        
+        magnet.onmousemove = (e) => {
+            const mousePosX = e.pageX - boundingRect.left;
+            const mousePosY = e.pageY - boundingRect.top;
+            
+            gsap.to(magnet, {
+            x: (mousePosX - boundingRect.width / 2) * 0.5,
+            y: (mousePosY - boundingRect.height / 2) * 0.8,
+            duration: 0.8, 
+            ease: 'power3.out',
+            });
+        
+        }
+        
+        magnet.onmouseleave = () => {
+            gsap.to(magnet, {
+            x: 0,
+            y: 0,
+            duration: 0.8,
+            //   ease: 'power3.out',
+            ease: 'elastic.out(1,0.5)'
+            });
+        }
+    })
+}
+
+
+function locoMotive() {
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector('main'),
+        smooth: true
+    });
+}
+
+
 function test() {
     gsap.set("#loader", { display: "none" })
 }
+
+
+
