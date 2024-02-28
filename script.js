@@ -2,15 +2,18 @@ const $ = (element) => (document.querySelector(element));
 const $$ = element => (document.querySelectorAll(element));
 
 let tl = gsap.timeline();
+const menuTl = gsap.timeline({ paused: true });
 
 
 
 // Calling functins
 loadingAnimatin();
+navAnimation();
+// default
 mouseFollower();
 makeMagnet('.magnet');
 locoMotive();
-test();
+// test();
 
 
 
@@ -64,6 +67,28 @@ function loadingAnimatin() {
         })
 }
 
+function navAnimation() {
+    let count = 1;
+    const navToggler = $(".nav-toggler");
+    const dots = $$(".nav-toggler svg rect:nth-child(2n)");
+
+    menuTl
+        .to(dots, { scale: 0, opacity: 0 }, 0)
+        .to(dots[0], {y:  5, ease: Expo.easeInOut}, 0)
+        .to(dots[1], {x:  5, ease: Expo.easeInOut}, 0)
+        .to(dots[2], {x: -5, ease: Expo.easeInOut}, 0)
+        .to(dots[3], {y: -5, ease: Expo.easeInOut}, 0)
+    navToggler.onclick = () => {
+        if (count) {
+            menuTl.play();
+            count--;
+        } else {
+            menuTl.reverse();
+            count++;
+        }        
+    }
+}
+
 function mouseFollower() {
     const bigCircleElement = $('.big-circle');
     const smallCircleElement = $('.small-circle');
@@ -109,14 +134,15 @@ function makeMagnet(element) {
             const mousePosY = e.pageY - boundingRect.top;
             
             gsap.to(magnet, {
-            x: (mousePosX - boundingRect.width / 2) * 0.5,
-            y: (mousePosY - boundingRect.height / 2) * 0.8,
-            duration: 0.8, 
-            ease: 'power3.out',
+                x: (mousePosX - boundingRect.width / 2) * 0.5,
+                y: (mousePosY - boundingRect.height / 2) * 0.8,
+                duration: 0.8, 
+                ease: 'power3.out',
             });
-        
+
+            
         }
-        
+
         magnet.onmouseleave = () => {
             gsap.to(magnet, {
             x: 0,
@@ -140,6 +166,7 @@ function locoMotive() {
 
 function test() {
     gsap.set("#loader", { display: "none" })
+    // gsap.set(".cursor", { display: "none" })
 }
 
 

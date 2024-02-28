@@ -33,7 +33,7 @@ main {
     display: inline-flex;
     transition: box-shadow ease-in-out .2s;
     padding: 5px 20px;
-  }
+}
 
 
 
@@ -162,6 +162,22 @@ header {
         text-transform: capitalize;
         --font-size: 15.2851px;
         --letter-spacing: -.2px;
+        
+        .nav-left {
+            display: flex;
+            gap: 10px;
+            height: fit-content;
+
+            .nav-toggler {
+                padding-bottom: 20px;
+                padding-top: 8px;
+                padding-right: 40px;
+
+                svg rect {
+                    transform-origin: 12.5% 12.5%;
+                }
+            }
+        }
 
         .nav-right {
             width: 75%;
@@ -177,7 +193,7 @@ header {
             ul {
                 list-style-type: none;
                 display: flex;
-                gap: 40px;
+                /* gap: 40px; */
 
                 a {
                     font-size: var(--font-size);
