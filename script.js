@@ -8,6 +8,7 @@ let tl = gsap.timeline();
 // Calling functins
 loadingAnimatin();
 mouseFollower();
+test();
 
 
 
@@ -92,4 +93,9 @@ function mouseFollower() {
     }
 
     tick();
+}
+
+
+function test() {
+    gsap.set("#loader", { display: "none" })
 }
