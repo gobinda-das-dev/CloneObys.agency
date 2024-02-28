@@ -20,7 +20,36 @@ body {
 }
 
 main {
+    cursor: none;
     position: relative;
+    background-color: #151515;
+}
+
+.cursor {
+    pointer-events: none;
+  
+    .big-circle, 
+    .small-circle {
+      position: fixed;
+      z-index: 998;
+      border-radius: 100%;
+      top: calc(var(--circle-size) / 2 * -1);
+      left: calc(var(--circle-size) / 2 * -1);
+    }
+  
+    .big-circle {
+      --circle-size: 2rem;
+      width: var(--circle-size);
+      height: var(--circle-size);
+      border: 1px solid white;
+    }
+  
+    .small-circle {
+      --circle-size: 0.3rem;
+      width: var(--circle-size);
+      height: var(--circle-size);
+      background-color: white;
+    }
 }
 
 
@@ -111,7 +140,6 @@ main {
 #page1 {
     height: 100vh;
     width: 100%;
-    background-color: #151515;
 }
 
 
