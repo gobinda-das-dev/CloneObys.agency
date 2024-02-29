@@ -125,6 +125,8 @@ function mouseFollower() {
 
 function makeMagnet(element) {
     const magnets = $$(element);
+    const bigCircleSize = parseFloat(getComputedStyle($(".big-circle")).getPropertyValue('--circle-size'));
+    const smallCircleSize = parseFloat(getComputedStyle($(".small-circle")).getPropertyValue('--circle-size'));
 
     magnets.forEach((magnet) => {
         let boundingRect = magnet.getBoundingClientRect();
@@ -139,10 +141,13 @@ function makeMagnet(element) {
                 duration: 0.8, 
                 ease: 'power3.out',
             });
-
-            
         }
-
+        
+        magnet.onmouseenter = () => {
+            gsap.to(".big-circle", { '--circle-size': (bigCircleSize * 2) + 'rem' });
+            gsap.to(".small-circle", { '--circle-size': '0rem' });
+        }
+        
         magnet.onmouseleave = () => {
             gsap.to(magnet, {
             x: 0,
@@ -151,6 +156,10 @@ function makeMagnet(element) {
             //   ease: 'power3.out',
             ease: 'elastic.out(1,0.5)'
             });
+
+
+            gsap.to(".big-circle", { '--circle-size': bigCircleSize + 'rem' });
+            gsap.to(".small-circle", { '--circle-size': smallCircleSize + 'rem' });
         }
     })
 }
@@ -171,3 +180,19 @@ function test() {
 
 
 
+function init() {
+    let customCanvas = document.getElementById('customCanvas');
+    let customWidth = 800;
+    let customHeight = 600;
+    let customDevicePixelRatio = 1;
+
+    this.renderer = new THREE.WebGLRenderer({
+        canvas: customCanvas,
+        alpha: true
+    }); 
+    
+    this.renderer.setSize(customWidth, customHeight);
+    this.renderer.setPixelRatio(customDevicePixelRatio);
+}
+
+init();
